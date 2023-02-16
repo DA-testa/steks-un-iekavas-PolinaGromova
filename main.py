@@ -23,13 +23,12 @@ def find_mismatch(text):
                 return i+1
 
     if opening_brackets_stack:
-        a = opening_brackets_stack.pop()
-        return a.position + 1
-    return "Success"
+        return opening_brackets_stack[-1].position + 1
+    else: return "Success"
 
 def main():
     do=input("F or I")
-    if do in "F":
+    if "F" in do:
         name = input("Enter file name: ") 
         with open(name, "r", encoding="latin1") as file:
             text=file.read()
@@ -38,7 +37,7 @@ def main():
             print("Success")
         else:
             print(mismatch)
-    elif do in "I":
+    elif "I" in do:
         text = input()
         mismatch = find_mismatch(text)
         if mismatch == "Success":
