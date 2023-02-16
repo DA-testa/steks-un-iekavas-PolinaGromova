@@ -28,9 +28,8 @@ def find_mismatch(text):
     return "Success"
 
 def main():
-    print("F/I")
-    do=input()
-    if do=="F":
+    do=input("F or I")
+    if do in "F":
         name = input("Enter file name: ") 
         with open(name, "r", encoding="latin1") as file:
             text=file.read()
@@ -39,7 +38,7 @@ def main():
             print("Success")
         else:
             print(mismatch)
-    elif do=="I":
+    elif do in "I":
         text = input()
         mismatch = find_mismatch(text)
         if mismatch == "Success":
